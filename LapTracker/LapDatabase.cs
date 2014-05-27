@@ -38,9 +38,9 @@ namespace LapTracker
             return true;
         }
 
-        public DataTable GetAllLaps()
+        public DataSet GetAllLaps()
         {
-            var table = database.GetDataTable("select ID \"id\", BARCODE \"barcode\", DATE \"date\" from lap");
+            var table = database.GetDataSet("select * from lap");
             return table;
 //            return (from DataRow row in table.Rows select new Lap() {
 //                    Id = (long) row["id"], 
@@ -60,7 +60,7 @@ namespace LapTracker
         private bool DatabaseExists()
         {
             var tables = database.GetDataTable("select NAME from SQLITE_MASTER where type='table' order by NAME;");
-            if (tables.Rows.Count >= 2)
+            if (tables != null && tables.Rows.Count >= 2)
             {
                 var tableNames = (from DataRow table in tables.Rows select table["NAME"].ToString()).ToList();
                 if (tableNames.Contains("lap") && tableNames.Contains("runner"))

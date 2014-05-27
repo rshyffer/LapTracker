@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -10,23 +11,58 @@ namespace LapTracker
 {
     public partial class Form1 : Form
     {
+        private LapDatabase lapDatabase = new LapDatabase();
+
         public Form1()
         {
             InitializeComponent();
+            lapGridView.BindingContext = this.BindingContext;
         }
-        private LapDatabase lapDatabase = new LapDatabase();
+        
         private void importButton_Click(object sender, EventArgs e)
         {
-            var laps = new List<Lap>
+            string fileName = this.fileNameTextBox.Text;
+            if (!File.Exists(fileName))
             {
-                new Lap() {BarcodeId = "ABC123", Time = DateTime.Now - TimeSpan.FromMinutes(3)},
-                new Lap() {BarcodeId = "ABC124", Time = DateTime.Now - TimeSpan.FromMinutes(2)},
-                new Lap() {BarcodeId = "ABC125", Time = DateTime.Now - TimeSpan.FromMinutes(1)},
-                new Lap() {BarcodeId = "ABC126", Time = DateTime.Now}
-            };
-            lapDatabase.AddLaps(laps);
+                return;
+            }
 
-            laps = lapDatabase.GetAllLaps();
+            var laps = new List<Lap>();
+            using (var reader = File.OpenText(fileName))
+            {
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var lap = Lap.CreateFromLine(line);
+                    if (lap != null)
+                    {
+                        laps.Add(lap);
+                    }
+                }
+            }
+            
+            //lapDatabase.AddLaps(laps);
+
+            //var dataTable = lapDatabase.GetAllLaps();
+            lapGridView.DataSource = laps;// dataTable.Tables[0].DefaultView;
+           
+           // bindingSource1.DataMember = "laps";
+        }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            openFileDialog.AddExtension = true;
+            openFileDialog.CheckFileExists = true;
+            openFileDialog.CheckPathExists = true;
+            openFileDialog.AutoUpgradeEnabled = true;
+            openFileDialog.DefaultExt = "txt";
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.Title = "Load Barcode File";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.fileNameTextBox.Text = openFileDialog.FileName; 
+            }
         }
     }
 }

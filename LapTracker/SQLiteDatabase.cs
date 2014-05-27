@@ -46,6 +46,29 @@ namespace LapTracker
             }
         }
 
+
+        public DataSet GetDataSet(string sql)
+        {
+            try
+            {
+                
+                using (var connection = new SQLiteConnection(dbConnection))
+                {
+                    connection.Open();
+                    var dataSet = new DataSet();
+                    var dataAdapter = new SQLiteDataAdapter(sql, connection);
+                    dataAdapter.Fill(dataSet);
+
+                    return dataSet;
+                }
+            }
+            catch (Exception e)
+            {
+                //TODO: Log Exception
+                return null;
+            }
+
+        }
         public int ExecuteNonQuery(string sql)
         {
             try
@@ -157,10 +180,14 @@ namespace LapTracker
         {
             try
             {
-                var tables = GetDataTable("select NAME from SQLITE_MASTER where type='table' order by NAME;");
-                foreach (DataRow table in tables.Rows)
+                var table = GetDataTable("select NAME from SQLITE_MASTER where type='table' order by NAME;");
+                if (table == null)
                 {
-                    ClearTable(table["NAME"].ToString());
+                    return true;
+                }
+                foreach (DataRow row in table.Rows)
+                {
+                    ClearTable(row["NAME"].ToString());
                 }
                 return true;
             }
