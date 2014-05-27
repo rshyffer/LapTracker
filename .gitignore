@@ -1,0 +1,6 @@
+LapTracker/bin/
+LapTracker/obj/
+packages/
+.nuget/
+*.suo
+*.user

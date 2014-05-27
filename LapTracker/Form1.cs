@@ -11,42 +11,22 @@ namespace LapTracker
 {
     public partial class Form1 : Form
     {
-        private LapDatabase lapDatabase = new LapDatabase();
+        private Laps laps;
 
         public Form1()
         {
             InitializeComponent();
-            lapGridView.BindingContext = this.BindingContext;
+            laps = new Laps();           
+            lapGridView.DataSource = laps;
+            lapGridView.AutoResizeColumns();
+            laps.Load("laps.csv");
         }
         
         private void importButton_Click(object sender, EventArgs e)
         {
-            string fileName = this.fileNameTextBox.Text;
-            if (!File.Exists(fileName))
-            {
-                return;
-            }
-
-            var laps = new List<Lap>();
-            using (var reader = File.OpenText(fileName))
-            {
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    var lap = Lap.CreateFromLine(line);
-                    if (lap != null)
-                    {
-                        laps.Add(lap);
-                    }
-                }
-            }
-            
-            //lapDatabase.AddLaps(laps);
-
-            //var dataTable = lapDatabase.GetAllLaps();
-            lapGridView.DataSource = laps;// dataTable.Tables[0].DefaultView;
+            string fileName = this.fileNameTextBox.Text;           
+            laps.AddLapsFromReader(fileName);                        
            
-           // bindingSource1.DataMember = "laps";
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -63,6 +43,12 @@ namespace LapTracker
             {
                 this.fileNameTextBox.Text = openFileDialog.FileName; 
             }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            laps.RemoveDuplicates();
+            laps.Save("laps.csv");
         }
     }
 }
