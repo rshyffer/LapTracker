@@ -1,37 +1,44 @@
 ﻿
+using System.Data;
+
 namespace LapTracker
 {
-    public class Runner
+    public class Runner : DataRow
     {
-        public string FirstName
+       
+        protected internal Runner(DataRowBuilder builder) : base(builder)
         {
-            get { return firstName; }
-            set { firstName = value; }
-        }
-
-        public string LastName
-        {
-            get { return lastName; }
-            set { lastName = value; }
-        }
-
-        public string BarcodeId
-        {
-            get { return barcodeId; }
-            set { barcodeId = value; }
         }
 
         public long Id
         {
-            get { return id; }
-            set { id = value; }
+            get { return (long)base["Id"]; }
+            set { base["Id"] = value; }
         }
 
-        private long id;
-        private string barcodeId;
-        private string lastName;
-        private string firstName;        
-    }
+        public string BarcodeId
+        {
+            get { return (string)base["BarcodeId"]; }
+            set { base["BarcodeId"] = value; }
+        }
+        
+        public string FirstName
+        {
+            get { return (string)base["FirstName"]; }
+            set { base["FirstName"] = value; }
+        }
 
-  
+        public string LastName
+        {
+            get { return (string)base["LastName"]; }
+            set { base["LastName"] = value; }
+        }
+
+        public string TeacherName
+        {
+            get { return (string)base["TeacherName"]; }
+            set { base["TeacherName"] = value; }
+        }
+       
+    }
 }

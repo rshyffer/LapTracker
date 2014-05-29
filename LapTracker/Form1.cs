@@ -12,16 +12,31 @@ namespace LapTracker
     public partial class Form1 : Form
     {
         private Laps laps;
+        private Runners runners;
 
         public Form1()
         {
             InitializeComponent();
-            laps = new Laps();           
+            SetLapsDatasource();
+            SetRunnersDatasource();
+        }
+
+        private void SetRunnersDatasource()
+        {
+            runners = new Runners();
+            runnerGridView.DataSource = runners;
+            runnerGridView.AutoResizeColumns();
+            runners.Load("runners.csv");
+        }
+
+        private void SetLapsDatasource()
+        {
+            laps = new Laps();
             lapGridView.DataSource = laps;
             lapGridView.AutoResizeColumns();
             laps.Load("laps.csv");
         }
-        
+
         private void importButton_Click(object sender, EventArgs e)
         {
             string fileName = this.fileNameTextBox.Text;           
@@ -49,6 +64,11 @@ namespace LapTracker
         {
             laps.RemoveDuplicates();
             laps.Save("laps.csv");
+        }
+
+        private void saveRunnersButton_Click(object sender, EventArgs e)
+        {
+            runners.Save("runners.csv");
         }
     }
 }
