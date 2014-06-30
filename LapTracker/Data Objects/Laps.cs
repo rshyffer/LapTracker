@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace LapTracker
 {
@@ -12,11 +13,11 @@ namespace LapTracker
 
         public Laps()
         {
-            this.TableName = tableName;
-            this.Columns.Add(new DataColumn("id", typeof (long)){AutoIncrement = true, AutoIncrementSeed = 0, AutoIncrementStep = 1});
-            this.Columns.Add(new DataColumn("time", typeof (DateTime)));
-            this.Columns.Add(new DataColumn("barcodeId", typeof (string)));
-            this.Columns.Add(new DataColumn("scannerId", typeof (int)));
+            TableName = tableName;
+            Columns.Add(new DataColumn("Id", typeof (long)){AutoIncrement = true, AutoIncrementSeed = 0, AutoIncrementStep = 1, ReadOnly = true});
+            Columns.Add(new DataColumn("Time", typeof (DateTime)));
+            Columns.Add(new DataColumn("BarcodeId", typeof (string)));
+            Columns.Add(new DataColumn("ScannerId", typeof (int)));
         }
 
         public bool AddLapsFromReader(string fileName)
@@ -25,7 +26,6 @@ namespace LapTracker
             {
                 return false;
             }
-
             try
             {
                 using (var reader = File.OpenText(fileName))
@@ -38,16 +38,15 @@ namespace LapTracker
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
             }
-            
         }
 
         private void AddLapFromReaderLine(string line)
-        {
-          
+        {          
             try
             {
                 var lap = CreateNewRow();
@@ -56,10 +55,11 @@ namespace LapTracker
                 lap.Time = DateTime.Parse(dateString);
                 lap.ScannerId = int.Parse(lines[3]);
                 lap.BarcodeId = lines[4];
-                this.Rows.Add(lap);
+                Rows.Add(lap);
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return;
             }
         }
@@ -78,6 +78,7 @@ namespace LapTracker
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return;
             }
         }
@@ -120,8 +121,9 @@ namespace LapTracker
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
             }
         }
@@ -140,10 +142,11 @@ namespace LapTracker
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
-            }           
+            }         
         }
 
         public void RemoveDuplicates()
@@ -160,7 +163,7 @@ namespace LapTracker
             }
         }
 
-        private List<Lap> GetRowsToRemove()
+        private IEnumerable<Lap> GetRowsToRemove()
         {
             var rowsToRemove = new List<Lap>();
             var barcodeIds = (from Lap row in Rows select row.BarcodeId).Distinct();

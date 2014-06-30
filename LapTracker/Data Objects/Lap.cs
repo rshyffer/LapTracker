@@ -12,27 +12,27 @@ namespace LapTracker
 
         public long Id
         {
-            get { return (long)base["id"]; }
-            set { base["id"] = value; }
+            get { return (long)base["Id"]; }
+            set { base["Id"] = value; }
         }
 
         public DateTime Time
         {
-            get { return (DateTime)base["time"]; }
-            set { base["time"] = value; }
+            get { return (DateTime)base["Time"]; }
+            set { base["Time"] = value; }
         }
 
 
         public string BarcodeId
         {
-            get { return (string)base["barcodeId"]; }
-            set { base["barcodeId"] = value; }
+            get { return (string)base["BarcodeId"]; }
+            set { base["BarcodeId"] = value; }
         }
 
         public int ScannerId
         {
-            get { return (int)base["scannerId"]; }
-            set { base["scannerId"] = value; }
+            get { return (int)base["ScannerId"]; }
+            set { base["ScannerId"] = value; }
         }
        
     }

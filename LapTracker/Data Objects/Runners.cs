@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace LapTracker
 {
@@ -12,12 +13,13 @@ namespace LapTracker
 
         public Runners()
         {
-            this.TableName = tableName;
-            this.Columns.Add(new DataColumn("Id", typeof(long)) { AutoIncrement = true, AutoIncrementSeed = 0, AutoIncrementStep = 1 });
-            this.Columns.Add(new DataColumn("BarcodeId", typeof(string)));
-            this.Columns.Add(new DataColumn("FirstName", typeof(string)));
-            this.Columns.Add(new DataColumn("LastName", typeof(string)));
-            this.Columns.Add(new DataColumn("TeacherName", typeof(string)));           
+            TableName = tableName;
+            Columns.Add(new DataColumn("Id", typeof(long)) { AutoIncrement = true, AutoIncrementSeed = 0, AutoIncrementStep = 1, ReadOnly = true});
+            Columns.Add(new DataColumn("BarcodeId", typeof(string)));
+            Columns.Add(new DataColumn("FirstName", typeof(string)));
+            Columns.Add(new DataColumn("LastName", typeof(string)));
+            Columns.Add(new DataColumn("TeacherName", typeof(string)));
+            Columns.Add(new DataColumn("Grade", typeof(string))); 
         }
 
         private void AddRunnerFromDatabaseLine(string line)
@@ -31,10 +33,13 @@ namespace LapTracker
                 runner.FirstName = lines[2];
                 runner.LastName = lines[3];
                 runner.TeacherName = lines[4];
+                runner.Grade = lines[5];
+
                 Rows.Add(runner);
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return;
             }
         }
@@ -77,8 +82,9 @@ namespace LapTracker
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
             }
         }
@@ -90,17 +96,18 @@ namespace LapTracker
             {
                 using (var writer = File.CreateText(fileName))
                 {
-                    foreach (var line in from Runner row in Rows select string.Format("{0},{1},{2},{3},{4}", 
+                    foreach (var line in from Runner row in Rows select string.Format("{0},{1},{2},{3},{4},{5}", 
                                              row.Id, row.BarcodeId, row.FirstName, 
-                                             row.LastName, row.TeacherName))
+                                             row.LastName, row.TeacherName, row.Grade))
                     {
                         writer.WriteLine(line);
                     }
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
             }
         }

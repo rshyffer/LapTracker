@@ -39,6 +39,12 @@ namespace LapTracker
             get { return (string)base["TeacherName"]; }
             set { base["TeacherName"] = value; }
         }
+
+        public string Grade
+        {
+            get { return (string)base["Grade"]; }
+            set { base["Grade"] = value; }
+        }
        
     }
 }

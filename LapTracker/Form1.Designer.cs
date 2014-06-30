@@ -32,45 +32,55 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.runnersTabPage = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.lapGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.importButton = new System.Windows.Forms.Button();
             this.browseButton = new System.Windows.Forms.Button();
             this.fileNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.lapsTabPage = new System.Windows.Forms.TabPage();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lapGridView = new System.Windows.Forms.DataGridView();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.runnerGridView = new System.Windows.Forms.DataGridView();
             this.saveRunnersButton = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.reportDataGridView = new System.Windows.Forms.DataGridView();
+            this.saveReportButton = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.createReportButton = new System.Windows.Forms.Button();
+            this.endDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.startDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.runnersTabPage.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lapGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.lapsTabPage.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lapGridView)).BeginInit();
-            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.runnerGridView)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.runnersTabPage);
             this.tabControl1.Controls.Add(this.lapsTabPage);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(522, 573);
+            this.tabControl1.Size = new System.Drawing.Size(1068, 773);
             this.tabControl1.TabIndex = 0;
             // 
             // runnersTabPage
@@ -81,7 +91,7 @@
             this.runnersTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.runnersTabPage.Name = "runnersTabPage";
             this.runnersTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.runnersTabPage.Size = new System.Drawing.Size(514, 547);
+            this.runnersTabPage.Size = new System.Drawing.Size(1060, 747);
             this.runnersTabPage.TabIndex = 0;
             this.runnersTabPage.Text = "Laps";
             this.runnersTabPage.UseVisualStyleBackColor = true;
@@ -90,129 +100,14 @@
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(2, 108);
+            this.groupBox2.Location = new System.Drawing.Point(2, 81);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(510, 437);
+            this.groupBox2.Size = new System.Drawing.Size(1056, 664);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Contents";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.importButton);
-            this.groupBox1.Controls.Add(this.browseButton);
-            this.groupBox1.Controls.Add(this.fileNameTextBox);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(2, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(510, 106);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Data Import";
-            // 
-            // importButton
-            // 
-            this.importButton.Location = new System.Drawing.Point(12, 68);
-            this.importButton.Margin = new System.Windows.Forms.Padding(2);
-            this.importButton.Name = "importButton";
-            this.importButton.Size = new System.Drawing.Size(299, 26);
-            this.importButton.TabIndex = 11;
-            this.importButton.Text = "Import";
-            this.importButton.UseVisualStyleBackColor = true;
-            this.importButton.Click += new System.EventHandler(this.importButton_Click);
-            // 
-            // browseButton
-            // 
-            this.browseButton.Location = new System.Drawing.Point(286, 41);
-            this.browseButton.Margin = new System.Windows.Forms.Padding(2);
-            this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(26, 23);
-            this.browseButton.TabIndex = 10;
-            this.browseButton.Text = "...";
-            this.browseButton.UseVisualStyleBackColor = true;
-            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
-            // 
-            // fileNameTextBox
-            // 
-            this.fileNameTextBox.Location = new System.Drawing.Point(92, 42);
-            this.fileNameTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.fileNameTextBox.Name = "fileNameTextBox";
-            this.fileNameTextBox.ReadOnly = true;
-            this.fileNameTextBox.Size = new System.Drawing.Size(191, 20);
-            this.fileNameTextBox.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 44);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Barcode File:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(88, 15);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(194, 20);
-            this.dateTimePicker1.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Running Date:";
-            // 
-            // lapsTabPage
-            // 
-            this.lapsTabPage.Controls.Add(this.groupBox4);
-            this.lapsTabPage.Controls.Add(this.groupBox3);
-            this.lapsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.lapsTabPage.Margin = new System.Windows.Forms.Padding(2);
-            this.lapsTabPage.Name = "lapsTabPage";
-            this.lapsTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.lapsTabPage.Size = new System.Drawing.Size(514, 547);
-            this.lapsTabPage.TabIndex = 1;
-            this.lapsTabPage.Text = "Runners";
-            this.lapsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox3.Location = new System.Drawing.Point(2, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(510, 116);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "groupBox3";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(2, 118);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(510, 427);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
             // 
             // tableLayoutPanel1
             // 
@@ -226,21 +121,12 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(506, 420);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1052, 647);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // lapGridView
-            // 
-            this.lapGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.lapGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lapGridView.Location = new System.Drawing.Point(3, 3);
-            this.lapGridView.Name = "lapGridView";
-            this.lapGridView.Size = new System.Drawing.Size(500, 381);
-            this.lapGridView.TabIndex = 1;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(2, 389);
+            this.saveButton.Location = new System.Drawing.Point(2, 616);
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(299, 28);
@@ -248,63 +134,253 @@
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel2
+            // lapGridView
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.runnerGridView, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.saveRunnersButton, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.89216F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.107843F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(504, 408);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.lapGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lapGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lapGridView.Location = new System.Drawing.Point(3, 3);
+            this.lapGridView.Name = "lapGridView";
+            this.lapGridView.Size = new System.Drawing.Size(1046, 608);
+            this.lapGridView.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.importButton);
+            this.groupBox1.Controls.Add(this.browseButton);
+            this.groupBox1.Controls.Add(this.fileNameTextBox);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(1056, 79);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Data Import";
+            // 
+            // importButton
+            // 
+            this.importButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.importButton.Location = new System.Drawing.Point(12, 43);
+            this.importButton.Margin = new System.Windows.Forms.Padding(2);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(299, 26);
+            this.importButton.TabIndex = 11;
+            this.importButton.Text = "Import";
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            // 
+            // browseButton
+            // 
+            this.browseButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.browseButton.Location = new System.Drawing.Point(286, 16);
+            this.browseButton.Margin = new System.Windows.Forms.Padding(2);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(26, 23);
+            this.browseButton.TabIndex = 10;
+            this.browseButton.Text = "...";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            // 
+            // fileNameTextBox
+            // 
+            this.fileNameTextBox.Location = new System.Drawing.Point(92, 17);
+            this.fileNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.fileNameTextBox.Name = "fileNameTextBox";
+            this.fileNameTextBox.ReadOnly = true;
+            this.fileNameTextBox.Size = new System.Drawing.Size(191, 20);
+            this.fileNameTextBox.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 19);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Barcode File:";
+            // 
+            // lapsTabPage
+            // 
+            this.lapsTabPage.Controls.Add(this.groupBox4);
+            this.lapsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.lapsTabPage.Margin = new System.Windows.Forms.Padding(2);
+            this.lapsTabPage.Name = "lapsTabPage";
+            this.lapsTabPage.Padding = new System.Windows.Forms.Padding(2);
+            this.lapsTabPage.Size = new System.Drawing.Size(1060, 747);
+            this.lapsTabPage.TabIndex = 1;
+            this.lapsTabPage.Text = "Runners";
+            this.lapsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.runnerGridView);
+            this.groupBox4.Controls.Add(this.saveRunnersButton);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(2, 2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1056, 743);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Runners";
             // 
             // runnerGridView
             // 
+            this.runnerGridView.AllowUserToResizeRows = false;
             this.runnerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.runnerGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.runnerGridView.Location = new System.Drawing.Point(3, 3);
+            this.runnerGridView.Location = new System.Drawing.Point(3, 16);
             this.runnerGridView.MultiSelect = false;
             this.runnerGridView.Name = "runnerGridView";
-            this.runnerGridView.Size = new System.Drawing.Size(498, 373);
-            this.runnerGridView.TabIndex = 1;
+            this.runnerGridView.Size = new System.Drawing.Size(1050, 701);
+            this.runnerGridView.TabIndex = 5;
             // 
             // saveRunnersButton
             // 
-            this.saveRunnersButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveRunnersButton.Location = new System.Drawing.Point(3, 382);
+            this.saveRunnersButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.saveRunnersButton.Location = new System.Drawing.Point(3, 717);
             this.saveRunnersButton.Name = "saveRunnersButton";
-            this.saveRunnersButton.Size = new System.Drawing.Size(498, 23);
-            this.saveRunnersButton.TabIndex = 2;
+            this.saveRunnersButton.Size = new System.Drawing.Size(1050, 23);
+            this.saveRunnersButton.TabIndex = 4;
             this.saveRunnersButton.Text = "Save";
             this.saveRunnersButton.UseVisualStyleBackColor = true;
-            this.saveRunnersButton.Click += new System.EventHandler(this.saveRunnersButton_Click);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1060, 770);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Reports";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.reportDataGridView);
+            this.groupBox5.Controls.Add(this.saveReportButton);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(0, 100);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1060, 670);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Results";
+            // 
+            // reportDataGridView
+            // 
+            this.reportDataGridView.AllowUserToAddRows = false;
+            this.reportDataGridView.AllowUserToDeleteRows = false;
+            this.reportDataGridView.AllowUserToResizeRows = false;
+            this.reportDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.reportDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.reportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.reportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.reportDataGridView.Name = "reportDataGridView";
+            this.reportDataGridView.Size = new System.Drawing.Size(1054, 619);
+            this.reportDataGridView.TabIndex = 0;
+            // 
+            // saveReportButton
+            // 
+            this.saveReportButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.saveReportButton.Location = new System.Drawing.Point(3, 635);
+            this.saveReportButton.Name = "saveReportButton";
+            this.saveReportButton.Size = new System.Drawing.Size(1054, 32);
+            this.saveReportButton.TabIndex = 1;
+            this.saveReportButton.Text = "Save Report...";
+            this.saveReportButton.UseVisualStyleBackColor = true;
+            this.saveReportButton.Click += new System.EventHandler(this.saveReportButton_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.createReportButton);
+            this.groupBox3.Controls.Add(this.endDatePicker);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.startDatePicker);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1060, 100);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Search Criteria";
+            // 
+            // createReportButton
+            // 
+            this.createReportButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.createReportButton.Location = new System.Drawing.Point(11, 64);
+            this.createReportButton.Name = "createReportButton";
+            this.createReportButton.Size = new System.Drawing.Size(269, 23);
+            this.createReportButton.TabIndex = 6;
+            this.createReportButton.Text = "Create Report";
+            this.createReportButton.UseVisualStyleBackColor = true;
+            this.createReportButton.Click += new System.EventHandler(this.createReport_Click);
+            // 
+            // endDatePicker
+            // 
+            this.endDatePicker.Location = new System.Drawing.Point(80, 38);
+            this.endDatePicker.Name = "endDatePicker";
+            this.endDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.endDatePicker.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "End Date";
+            // 
+            // startDatePicker
+            // 
+            this.startDatePicker.Location = new System.Drawing.Point(80, 12);
+            this.startDatePicker.Name = "startDatePicker";
+            this.startDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.startDatePicker.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Start Date";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 573);
+            this.ClientSize = new System.Drawing.Size(1068, 773);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Lap Tracker";
             this.tabControl1.ResumeLayout(false);
             this.runnersTabPage.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lapGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.lapsTabPage.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.lapGridView)).EndInit();
-            this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.runnerGridView)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.reportDataGridView)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -320,17 +396,23 @@
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.TextBox fileNameTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.DataGridView lapGridView;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView runnerGridView;
         private System.Windows.Forms.Button saveRunnersButton;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView reportDataGridView;
+        private System.Windows.Forms.Button saveReportButton;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button createReportButton;
+        private System.Windows.Forms.DateTimePicker endDatePicker;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker startDatePicker;
+        private System.Windows.Forms.Label label4;
     }
 }
 

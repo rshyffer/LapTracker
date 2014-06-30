@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Text;
 using System.Windows.Forms;
 
 namespace LapTracker
@@ -13,6 +7,7 @@ namespace LapTracker
     {
         private Laps laps;
         private Runners runners;
+        private Report report;
 
         public Form1()
         {
@@ -27,6 +22,9 @@ namespace LapTracker
             runnerGridView.DataSource = runners;
             runnerGridView.AutoResizeColumns();
             runners.Load("runners.csv");
+            
+            var idColumn = runnerGridView.Columns["Id"];
+            if (idColumn != null) idColumn.Visible = false;
         }
 
         private void SetLapsDatasource()
@@ -35,6 +33,9 @@ namespace LapTracker
             lapGridView.DataSource = laps;
             lapGridView.AutoResizeColumns();
             laps.Load("laps.csv");
+
+            var idColumn = lapGridView.Columns["Id"];
+            if (idColumn != null) idColumn.Visible = false;
         }
 
         private void importButton_Click(object sender, EventArgs e)
@@ -69,6 +70,36 @@ namespace LapTracker
         private void saveRunnersButton_Click(object sender, EventArgs e)
         {
             runners.Save("runners.csv");
+        }
+
+        private void createReport_Click(object sender, EventArgs e)
+        {
+            var startDate = startDatePicker.Value;           
+            var endDate = endDatePicker.Value;
+            report = new Report();
+            report.Create(startDate, endDate, laps, runners);
+            reportDataGridView.DataSource = report;
+           
+            var idColumn = reportDataGridView.Columns["Id"];
+            if (idColumn != null) idColumn.Visible = false;
+
+            reportDataGridView.AutoResizeColumns();
+        }
+
+        private void saveReportButton_Click(object sender, EventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.AddExtension = true;
+            dialog.CheckPathExists = true;
+            dialog.DefaultExt = ".csv";
+            dialog.FileName = report.DefaultName();
+            dialog.Filter = "Comma Separated Values (.csv)|.csv";
+            dialog.FilterIndex = 0;
+            dialog.OverwritePrompt = true;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                report.Save(dialog.FileName);
+            }
         }
     }
 }
