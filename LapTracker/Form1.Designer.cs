@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.runnersTabPage = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,6 +56,9 @@
             this.startDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.importLapsButton = new System.Windows.Forms.Button();
+            this.manageRunnersButton = new System.Windows.Forms.Button();
+            this.reportsButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.runnersTabPage.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -75,12 +79,11 @@
             this.tabControl1.Controls.Add(this.runnersTabPage);
             this.tabControl1.Controls.Add(this.lapsTabPage);
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(366, 84);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1068, 773);
+            this.tabControl1.Size = new System.Drawing.Size(1068, 796);
             this.tabControl1.TabIndex = 0;
             // 
             // runnersTabPage
@@ -91,7 +94,7 @@
             this.runnersTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.runnersTabPage.Name = "runnersTabPage";
             this.runnersTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.runnersTabPage.Size = new System.Drawing.Size(1060, 747);
+            this.runnersTabPage.Size = new System.Drawing.Size(1060, 770);
             this.runnersTabPage.TabIndex = 0;
             this.runnersTabPage.Text = "Laps";
             this.runnersTabPage.UseVisualStyleBackColor = true;
@@ -104,7 +107,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(1056, 664);
+            this.groupBox2.Size = new System.Drawing.Size(1056, 687);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Data Contents";
@@ -121,12 +124,12 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1052, 647);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1052, 670);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(2, 616);
+            this.saveButton.Location = new System.Drawing.Point(2, 639);
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(299, 28);
@@ -140,7 +143,7 @@
             this.lapGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lapGridView.Location = new System.Drawing.Point(3, 3);
             this.lapGridView.Name = "lapGridView";
-            this.lapGridView.Size = new System.Drawing.Size(1046, 608);
+            this.lapGridView.Size = new System.Drawing.Size(1046, 631);
             this.lapGridView.TabIndex = 1;
             // 
             // groupBox1
@@ -209,7 +212,7 @@
             this.lapsTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.lapsTabPage.Name = "lapsTabPage";
             this.lapsTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.lapsTabPage.Size = new System.Drawing.Size(1060, 747);
+            this.lapsTabPage.Size = new System.Drawing.Size(1060, 770);
             this.lapsTabPage.TabIndex = 1;
             this.lapsTabPage.Text = "Runners";
             this.lapsTabPage.UseVisualStyleBackColor = true;
@@ -221,7 +224,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1056, 743);
+            this.groupBox4.Size = new System.Drawing.Size(1056, 766);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Runners";
@@ -234,13 +237,13 @@
             this.runnerGridView.Location = new System.Drawing.Point(3, 16);
             this.runnerGridView.MultiSelect = false;
             this.runnerGridView.Name = "runnerGridView";
-            this.runnerGridView.Size = new System.Drawing.Size(1050, 701);
+            this.runnerGridView.Size = new System.Drawing.Size(1050, 724);
             this.runnerGridView.TabIndex = 5;
             // 
             // saveRunnersButton
             // 
             this.saveRunnersButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.saveRunnersButton.Location = new System.Drawing.Point(3, 717);
+            this.saveRunnersButton.Location = new System.Drawing.Point(3, 740);
             this.saveRunnersButton.Name = "saveRunnersButton";
             this.saveRunnersButton.Size = new System.Drawing.Size(1050, 23);
             this.saveRunnersButton.TabIndex = 4;
@@ -357,11 +360,60 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // importLapsButton
+            // 
+            this.importLapsButton.BackColor = System.Drawing.Color.White;
+            this.importLapsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importLapsButton.Image = ((System.Drawing.Image)(resources.GetObject("importLapsButton.Image")));
+            this.importLapsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.importLapsButton.Location = new System.Drawing.Point(12, 12);
+            this.importLapsButton.Name = "importLapsButton";
+            this.importLapsButton.Size = new System.Drawing.Size(253, 85);
+            this.importLapsButton.TabIndex = 1;
+            this.importLapsButton.Text = "Import Laps";
+            this.importLapsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.importLapsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.importLapsButton.UseVisualStyleBackColor = false;
+            this.importLapsButton.Click += new System.EventHandler(this.importLapsButton_Click);
+            // 
+            // manageRunnersButton
+            // 
+            this.manageRunnersButton.BackColor = System.Drawing.Color.White;
+            this.manageRunnersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageRunnersButton.Image = ((System.Drawing.Image)(resources.GetObject("manageRunnersButton.Image")));
+            this.manageRunnersButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manageRunnersButton.Location = new System.Drawing.Point(12, 103);
+            this.manageRunnersButton.Name = "manageRunnersButton";
+            this.manageRunnersButton.Size = new System.Drawing.Size(253, 85);
+            this.manageRunnersButton.TabIndex = 2;
+            this.manageRunnersButton.Text = "Manage Runners";
+            this.manageRunnersButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.manageRunnersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.manageRunnersButton.UseVisualStyleBackColor = false;
+            // 
+            // reportsButton
+            // 
+            this.reportsButton.BackColor = System.Drawing.Color.White;
+            this.reportsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportsButton.Image = ((System.Drawing.Image)(resources.GetObject("reportsButton.Image")));
+            this.reportsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reportsButton.Location = new System.Drawing.Point(12, 194);
+            this.reportsButton.Name = "reportsButton";
+            this.reportsButton.Size = new System.Drawing.Size(253, 85);
+            this.reportsButton.TabIndex = 3;
+            this.reportsButton.Text = "Reports";
+            this.reportsButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.reportsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.reportsButton.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 773);
+            this.ClientSize = new System.Drawing.Size(1068, 765);
+            this.Controls.Add(this.reportsButton);
+            this.Controls.Add(this.manageRunnersButton);
+            this.Controls.Add(this.importLapsButton);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
@@ -413,6 +465,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker startDatePicker;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button importLapsButton;
+        private System.Windows.Forms.Button manageRunnersButton;
+        private System.Windows.Forms.Button reportsButton;
     }
 }
 

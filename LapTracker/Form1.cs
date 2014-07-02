@@ -82,7 +82,7 @@ namespace LapTracker
            
             var idColumn = reportDataGridView.Columns["Id"];
             if (idColumn != null) idColumn.Visible = false;
-
+            
             reportDataGridView.AutoResizeColumns();
         }
 
@@ -99,6 +99,18 @@ namespace LapTracker
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 report.Save(dialog.FileName);
+            }
+        }
+
+        private void importLapsButton_Click(object sender, EventArgs e)
+        {
+            var window = new ImportWizard();
+            var result = window.ShowDialog(this);
+            if (result == DialogResult.OK)
+            {
+                laps.Add(window.Laps);
+                laps.RemoveDuplicates();
+                laps.Save("laps.csv");
             }
         }
     }

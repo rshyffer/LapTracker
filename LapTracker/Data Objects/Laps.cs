@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace LapTracker
 {
-    internal class Laps : DataTable
+    public class Laps : DataTable
     {
         private const string tableName = "Laps";
 
@@ -61,6 +61,18 @@ namespace LapTracker
             {
                 MessageBox.Show(e.ToString());
                 return;
+            }
+        }
+
+        public void Add(Laps lapsToAdd)
+        {
+            foreach (Lap row in lapsToAdd.Rows)
+            {
+                var lap = CreateNewRow();
+                lap.Time = row.Time;
+                lap.ScannerId = row.ScannerId;
+                lap.BarcodeId = row.BarcodeId;
+                Rows.Add(lap);
             }
         }
 
