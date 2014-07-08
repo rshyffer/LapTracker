@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace LapTracker
     public partial class ImportWizard : Form
     {
         string scannerFilePath;
+        const string BarcodeFile = "BARCODES.TXT";
         private Laps laps;
 
         public ImportWizard()
@@ -57,12 +59,23 @@ namespace LapTracker
 
         private string findScanner()
         {
+            var usbDrives = from driveInfo in DriveInfo.GetDrives()
+                where driveInfo.DriveType == DriveType.Removable
+                select driveInfo.RootDirectory.FullName;
+            foreach (var drive in usbDrives)
+            {
+                var path = drive + BarcodeFile;
+                if (File.Exists(path))
+                {
+                    return path;
+                }
+            }
             return null;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoadLaps(scannerFilePath);
+            LoadLaps();
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -109,8 +122,14 @@ namespace LapTracker
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            reanameImportedFile()
+            reanameImportedFile();
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void reanameImportedFile()
+        {
+            string newName = Path.ChangeExtension(scannerFilePath, "imported");
+            File.Move(scannerFilePath, newName);
         }
     }
 }
