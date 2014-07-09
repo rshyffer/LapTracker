@@ -20,6 +20,23 @@ namespace LapTracker
             Columns.Add(new DataColumn("ScannerId", typeof (int)));
         }
 
+        public DateTime MinDate
+        {
+            get
+            {
+                return (from Lap row in Rows select row.Time).Min();
+            }
+            
+        }
+
+        public DateTime MaxDate
+        {
+            get
+            {
+                return (from Lap row in Rows select row.Time).Max();
+            }
+        }
+
         public bool AddLapsFromReader(string fileName)
         {          
             if (!File.Exists(fileName))

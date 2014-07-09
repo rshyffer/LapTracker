@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace LapTracker
 {
-    internal class Runners : DataTable
+    public class Runners : DataTable
     {
         private const string tableName = "Runners";
 

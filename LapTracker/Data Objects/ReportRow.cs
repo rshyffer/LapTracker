@@ -44,5 +44,12 @@ namespace LapTracker
             get { return (int)base["Laps"]; }
             set { base["Laps"] = value; }
         }
+
+        public int ParticipationDays
+        {
+            get { return (int)base["ParticipationDays"]; }
+            set { base["ParticipationDays"] = value; }
+
+        }
     }
 }

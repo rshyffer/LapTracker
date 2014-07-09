@@ -61,7 +61,7 @@
             this.scannerFoundPanel.Location = new System.Drawing.Point(0, 99);
             this.scannerFoundPanel.Name = "scannerFoundPanel";
             this.scannerFoundPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.scannerFoundPanel.Size = new System.Drawing.Size(600, 93);
+            this.scannerFoundPanel.Size = new System.Drawing.Size(784, 93);
             this.scannerFoundPanel.TabIndex = 2;
             this.scannerFoundPanel.Visible = false;
             // 
@@ -70,7 +70,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.Location = new System.Drawing.Point(10, 47);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(580, 35);
+            this.button1.Size = new System.Drawing.Size(764, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "Load";
             this.button1.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(600, 99);
+            this.panel1.Size = new System.Drawing.Size(784, 99);
             this.panel1.TabIndex = 3;
             // 
             // findButton
@@ -104,7 +104,7 @@
             this.findButton.Location = new System.Drawing.Point(10, 47);
             this.findButton.Margin = new System.Windows.Forms.Padding(10);
             this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(580, 36);
+            this.findButton.Size = new System.Drawing.Size(764, 36);
             this.findButton.TabIndex = 2;
             this.findButton.Text = "Find";
             this.findButton.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             this.scannerNotFoundPanel.Location = new System.Drawing.Point(0, 192);
             this.scannerNotFoundPanel.Name = "scannerNotFoundPanel";
             this.scannerNotFoundPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.scannerNotFoundPanel.Size = new System.Drawing.Size(600, 131);
+            this.scannerNotFoundPanel.Size = new System.Drawing.Size(784, 131);
             this.scannerNotFoundPanel.TabIndex = 4;
             this.scannerNotFoundPanel.Visible = false;
             // 
@@ -141,7 +141,7 @@
             this.importButton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.importButton2.Location = new System.Drawing.Point(10, 82);
             this.importButton2.Name = "importButton2";
-            this.importButton2.Size = new System.Drawing.Size(580, 35);
+            this.importButton2.Size = new System.Drawing.Size(764, 35);
             this.importButton2.TabIndex = 1;
             this.importButton2.Text = "Load";
             this.importButton2.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 47);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(580, 35);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(764, 35);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // sourceFileTextBox
@@ -193,9 +193,9 @@
             // cancelButton
             // 
             this.cancelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cancelButton.Location = new System.Drawing.Point(0, 566);
+            this.cancelButton.Location = new System.Drawing.Point(0, 526);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(600, 35);
+            this.cancelButton.Size = new System.Drawing.Size(784, 35);
             this.cancelButton.TabIndex = 6;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@
             this.lapViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lapViewPanel.Location = new System.Drawing.Point(0, 323);
             this.lapViewPanel.Name = "lapViewPanel";
-            this.lapViewPanel.Size = new System.Drawing.Size(600, 243);
+            this.lapViewPanel.Size = new System.Drawing.Size(784, 203);
             this.lapViewPanel.TabIndex = 7;
             this.lapViewPanel.Visible = false;
             // 
@@ -218,16 +218,16 @@
             this.lapsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lapsGridView.Location = new System.Drawing.Point(0, 0);
             this.lapsGridView.Name = "lapsGridView";
-            this.lapsGridView.Size = new System.Drawing.Size(600, 208);
+            this.lapsGridView.Size = new System.Drawing.Size(784, 168);
             this.lapsGridView.TabIndex = 6;
             this.lapsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lapsGridView_CellContentClick);
             // 
             // addButton
             // 
             this.addButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.addButton.Location = new System.Drawing.Point(0, 208);
+            this.addButton.Location = new System.Drawing.Point(0, 168);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(600, 35);
+            this.addButton.Size = new System.Drawing.Size(784, 35);
             this.addButton.TabIndex = 7;
             this.addButton.Text = "Import";
             this.addButton.UseVisualStyleBackColor = true;
@@ -237,7 +237,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 601);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ControlBox = false;
             this.Controls.Add(this.lapViewPanel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.scannerNotFoundPanel);

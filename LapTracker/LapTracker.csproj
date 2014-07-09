@@ -97,6 +97,18 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\TotalLapsReport.cs" />
+    <Compile Include="ReportWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportWizard.Designer.cs">
+      <DependentUpon>ReportWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RunnersWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RunnersWizard.Designer.cs">
+      <DependentUpon>RunnersWizard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +125,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReportWizard.resx">
+      <DependentUpon>ReportWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RunnersWizard.resx">
+      <DependentUpon>RunnersWizard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

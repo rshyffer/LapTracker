@@ -1,57 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LapTracker
 {
     public partial class ImportWizard : Form
     {
-        string scannerFilePath;
+        string _scannerFilePath;
         const string BarcodeFile = "BARCODES.TXT";
-        private Laps laps;
+        private readonly Laps _laps;
 
         public ImportWizard()
         {
             InitializeComponent();
-            laps = new Laps();
+            _laps = new Laps();
             lapsGridView.DataSource = Laps;
            
         }
 
         public Laps Laps
         {
-            get { return laps; }
+            get { return _laps; }
         }
 
         private void findButton_Click(object sender, EventArgs e)
         {
-            scannerFilePath = findScanner();
-            if (string.IsNullOrEmpty(scannerFilePath))
+            _scannerFilePath = findScanner();
+            if (string.IsNullOrEmpty(_scannerFilePath))
             {
-                showScannerNotFound();
+                ShowScannerNotFound();
             }
             else
             {
-                showScannerFound();
+                ShowScannerFound();
             }
         }
 
-        private void showScannerFound()
+        private void ShowScannerFound()
         {
             foundLocationLabel.Text = string.Format("Scanner found at \"{0}\"",
-                scannerFilePath);
+                _scannerFilePath);
             scannerFoundPanel.Visible = true;
             scannerNotFoundPanel.Visible = false;
         }
 
-        private void showScannerNotFound()
+        private void ShowScannerNotFound()
         {
             scannerFoundPanel.Visible = false;
             scannerNotFoundPanel.Visible = true;
@@ -90,19 +84,19 @@ namespace LapTracker
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                this.sourceFileTextBox.Text = openFileDialog.FileName;
+                sourceFileTextBox.Text = openFileDialog.FileName;
             }
         }
 
         private void importButton2_Click(object sender, EventArgs e)
         {
-            scannerFilePath = sourceFileTextBox.Text;
+            _scannerFilePath = sourceFileTextBox.Text;
             LoadLaps();
         }
 
         private void LoadLaps()
         {
-            Laps.AddLapsFromReader(scannerFilePath);
+            Laps.AddLapsFromReader(_scannerFilePath);
             lapViewPanel.Visible = true;
             lapsGridView.AutoResizeColumns();
             var idColumn = lapsGridView.Columns["Id"];
@@ -111,8 +105,8 @@ namespace LapTracker
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         private void lapsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -122,14 +116,14 @@ namespace LapTracker
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            reanameImportedFile();
-            this.DialogResult = DialogResult.OK;
+            ReanameImportedFile();
+            DialogResult = DialogResult.OK;
         }
 
-        private void reanameImportedFile()
+        private void ReanameImportedFile()
         {
-            string newName = Path.ChangeExtension(scannerFilePath, "imported");
-            File.Move(scannerFilePath, newName);
+            var newName = Path.ChangeExtension(_scannerFilePath, "imported");
+            File.Move(_scannerFilePath, newName);
         }
     }
 }

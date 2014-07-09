@@ -20,7 +20,8 @@ namespace LapTracker
             Columns.Add(new DataColumn("LastName", typeof(string)));
             Columns.Add(new DataColumn("TeacherName", typeof(string)));
             Columns.Add(new DataColumn("Grade", typeof(string)));
-            Columns.Add(new DataColumn("Laps", typeof(int))); 
+            Columns.Add(new DataColumn("Laps", typeof(int)));
+            Columns.Add(new DataColumn("ParticipationDays", typeof(int)));
         }
 
         private ReportRow CreateNewRow()
@@ -79,12 +80,14 @@ namespace LapTracker
                                       select runner).FirstOrDefault();
                 if (matchingRunner != null)
                 {
+                    var runnerLaps = (from Lap lap in relevantLaps where lap.BarcodeId == id select lap);
                     var row = CreateNewRow();
-                    row.FirstName = matchingRunner.FirstName;
-                    row.LastName = matchingRunner.LastName;
-                    row.Grade = matchingRunner.Grade;
-                    row.TeacherName = matchingRunner.TeacherName;
-                    row.Laps = (from Lap lap in relevantLaps where lap.BarcodeId == id select lap).Count();
+                    row.FirstName = matchingRunner.FirstName.Trim();
+                    row.LastName = matchingRunner.LastName.Trim();
+                    row.Grade = matchingRunner.Grade.Trim();
+                    row.TeacherName = matchingRunner.TeacherName.Trim();
+                    row.Laps = runnerLaps.Count();
+                    row.ParticipationDays = (from Lap lap in runnerLaps select lap.Time.Date).Distinct().Count(); 
                     Rows.Add(row);
                 }
             }
