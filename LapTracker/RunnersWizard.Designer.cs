@@ -37,8 +37,8 @@
             // cancelButton
             // 
             this.cancelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cancelButton.Location = new System.Drawing.Point(0, 518);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cancelButton.Location = new System.Drawing.Point(0, 499);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(784, 43);
             this.cancelButton.TabIndex = 7;
@@ -49,8 +49,8 @@
             // addButton
             // 
             this.addButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.addButton.Location = new System.Drawing.Point(0, 475);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Location = new System.Drawing.Point(0, 456);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(784, 43);
             this.addButton.TabIndex = 8;
@@ -66,20 +66,20 @@
             this.runnerGridView.Location = new System.Drawing.Point(0, 0);
             this.runnerGridView.MultiSelect = false;
             this.runnerGridView.Name = "runnerGridView";
-            this.runnerGridView.Size = new System.Drawing.Size(784, 475);
+            this.runnerGridView.Size = new System.Drawing.Size(784, 456);
             this.runnerGridView.TabIndex = 9;
             // 
             // RunnersWizard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 542);
             this.ControlBox = false;
             this.Controls.Add(this.runnerGridView);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.cancelButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RunnersWizard";
             this.Text = "Runners";
             ((System.ComponentModel.ISupportInitialize)(this.runnerGridView)).EndInit();

@@ -193,7 +193,7 @@
             // cancelButton
             // 
             this.cancelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.cancelButton.Location = new System.Drawing.Point(0, 526);
+            this.cancelButton.Location = new System.Drawing.Point(0, 507);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(784, 35);
             this.cancelButton.TabIndex = 6;
@@ -208,7 +208,7 @@
             this.lapViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lapViewPanel.Location = new System.Drawing.Point(0, 323);
             this.lapViewPanel.Name = "lapViewPanel";
-            this.lapViewPanel.Size = new System.Drawing.Size(784, 203);
+            this.lapViewPanel.Size = new System.Drawing.Size(784, 184);
             this.lapViewPanel.TabIndex = 7;
             this.lapViewPanel.Visible = false;
             // 
@@ -218,14 +218,14 @@
             this.lapsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lapsGridView.Location = new System.Drawing.Point(0, 0);
             this.lapsGridView.Name = "lapsGridView";
-            this.lapsGridView.Size = new System.Drawing.Size(784, 168);
+            this.lapsGridView.Size = new System.Drawing.Size(784, 149);
             this.lapsGridView.TabIndex = 6;
             this.lapsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lapsGridView_CellContentClick);
             // 
             // addButton
             // 
             this.addButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.addButton.Location = new System.Drawing.Point(0, 168);
+            this.addButton.Location = new System.Drawing.Point(0, 149);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(784, 35);
             this.addButton.TabIndex = 7;
@@ -237,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 542);
             this.ControlBox = false;
             this.Controls.Add(this.lapViewPanel);
             this.Controls.Add(this.cancelButton);

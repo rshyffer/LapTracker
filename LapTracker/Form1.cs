@@ -52,7 +52,8 @@ namespace LapTracker
             }
             else
             {
-                runners.Load("runners.csv");
+                runners.Dispose();
+                SetRunnersDatasource();
             }
         }
 

@@ -15,7 +15,7 @@ namespace LapTracker
         {
             TableName = tableName;
             Columns.Add(new DataColumn("Id", typeof(long)) { AutoIncrement = true, AutoIncrementSeed = 0, AutoIncrementStep = 1, ReadOnly = true});
-            Columns.Add(new DataColumn("BarcodeId", typeof(string)));
+            Columns.Add(new DataColumn("BarcodeId", typeof(string)) {Unique = true});
             Columns.Add(new DataColumn("FirstName", typeof(string)));
             Columns.Add(new DataColumn("LastName", typeof(string)));
             Columns.Add(new DataColumn("TeacherName", typeof(string)));
