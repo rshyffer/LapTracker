@@ -72,7 +72,12 @@ namespace LapTracker
                 lap.Time = DateTime.Parse(dateString);
                 lap.ScannerId = int.Parse(lines[3]);
                 lap.BarcodeId = lines[4];
+				var rowCount = Rows.Count;
                 Rows.Add(lap);
+				while (Rows.Count > rowCount + 1)
+				{
+					Rows.RemoveAt(Rows.Count - 1);
+				}
             }
             catch (Exception e)
             {
@@ -85,6 +90,9 @@ namespace LapTracker
         {
             foreach (Lap row in lapsToAdd.Rows)
             {
+				if (row.IsNull("BarcodeId")) {
+					continue;
+				}
                 var lap = CreateNewRow();
                 lap.Time = row.Time;
                 lap.ScannerId = row.ScannerId;

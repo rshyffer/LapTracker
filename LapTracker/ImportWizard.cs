@@ -54,11 +54,11 @@ namespace LapTracker
         private string findScanner()
         {
             var usbDrives = from driveInfo in DriveInfo.GetDrives()
-                where driveInfo.DriveType == DriveType.Removable
+                /* where driveInfo.DriveType == DriveType.Removable */
                 select driveInfo.RootDirectory.FullName;
             foreach (var drive in usbDrives)
             {
-                var path = drive + BarcodeFile;
+				var path = Path.Combine(drive, BarcodeFile);
                 if (File.Exists(path))
                 {
                     return path;
