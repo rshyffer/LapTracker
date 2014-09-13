@@ -19,8 +19,11 @@ namespace LapTracker
 
         private void SetDateRange()
         {
-            startDatePicker.Value = _laps.MinDate;
-            endDatePicker.Value = _laps.MaxDate;
+            if (_laps != null && _laps.Rows.Count > 0)
+            {
+                startDatePicker.Value = _laps.MinDate;
+                endDatePicker.Value = _laps.MaxDate;
+            }
         }
 
         private void createReportButton_Click(object sender, EventArgs e)

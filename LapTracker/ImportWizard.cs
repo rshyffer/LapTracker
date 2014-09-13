@@ -8,7 +8,8 @@ namespace LapTracker
     public partial class ImportWizard : Form
     {
         string _scannerFilePath;
-        const string BarcodeFile = "BARCODES.TXT";
+        private const string BarcodeDirectory = "Scanned Barcodes";
+        const string BarcodeFileSearch = "BARCODES-*.TXT";
         private readonly Laps _laps;
 
         public ImportWizard()
@@ -53,15 +54,20 @@ namespace LapTracker
 
         private string findScanner()
         {
-            var usbDrives = from driveInfo in DriveInfo.GetDrives()
-                /* where driveInfo.DriveType == DriveType.Removable */
-                select driveInfo.RootDirectory.FullName;
+            var usbDrives = from driveInfo in DriveInfo.GetDrives() select driveInfo.RootDirectory.FullName;
             foreach (var drive in usbDrives)
             {
-				var path = Path.Combine(drive, BarcodeFile);
-                if (File.Exists(path))
+                var path = Path.Combine(drive, BarcodeDirectory);
+                if (!Directory.Exists(path))
                 {
-                    return path;
+                    continue;
+                }
+                var file = Directory.GetFiles(path, BarcodeFileSearch).FirstOrDefault();
+				
+                
+                if (File.Exists(file))
+                {
+                    return file;
                 }
             }
             return null;
@@ -120,10 +126,20 @@ namespace LapTracker
             DialogResult = DialogResult.OK;
         }
 
+        //private void ReanameImportedFile()
+        //{
+        //    var newName = Path.ChangeExtension(_scannerFilePath, "imported");
+        //    File.Move(_scannerFilePath, newName);
+        //}
+
         private void ReanameImportedFile()
         {
-            var newName = Path.ChangeExtension(_scannerFilePath, "imported");
-            File.Move(_scannerFilePath, newName);
+            var path = Path.GetDirectoryName(_scannerFilePath);
+            var baseFileName = Path.GetFileNameWithoutExtension(_scannerFilePath);
+            var backupFile = String.Format("{0}-{1}.imported", baseFileName, DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss"));
+            var backupPath = Path.Combine(path, backupFile);
+            File.Move(_scannerFilePath, backupPath);
+            
         }
     }
 }

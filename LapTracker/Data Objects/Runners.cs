@@ -15,11 +15,11 @@ namespace LapTracker
         {
             TableName = tableName;
             Columns.Add(new DataColumn("Id", typeof(long)) { AutoIncrement = true, AutoIncrementSeed = 0, AutoIncrementStep = 1, ReadOnly = true});
-            Columns.Add(new DataColumn("BarcodeId", typeof(string)) {Unique = true});
-            Columns.Add(new DataColumn("FirstName", typeof(string)));
-            Columns.Add(new DataColumn("LastName", typeof(string)));
-            Columns.Add(new DataColumn("TeacherName", typeof(string)));
-            Columns.Add(new DataColumn("Grade", typeof(string))); 
+            Columns.Add(new DataColumn("BarcodeId", typeof(string)) {Unique = true, AllowDBNull = false});
+            Columns.Add(new DataColumn("FirstName", typeof(string)) {AllowDBNull = false});
+            Columns.Add(new DataColumn("LastName", typeof(string)) { AllowDBNull = false });
+            Columns.Add(new DataColumn("TeacherName", typeof(string)) { AllowDBNull = false });
+            Columns.Add(new DataColumn("Grade", typeof(string)) { AllowDBNull = false }); 
         }
 
         private void AddRunnerFromDatabaseLine(string line)

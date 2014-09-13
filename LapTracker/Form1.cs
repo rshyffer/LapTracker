@@ -1,14 +1,15 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace LapTracker
 {
     public partial class Form1 : Form
     {
-        private Laps laps;
-        private Runners runners;
-        private Report report;
-
+        private Laps _laps;
+        private Runners _runners;
+        private const string RunnersFile = "runners.csv";
+        private const string LapsFile = "laps.csv";
         public Form1()
         {
             InitializeComponent();
@@ -18,14 +19,14 @@ namespace LapTracker
 
         private void SetRunnersDatasource()
         {
-            runners = new Runners();
-            runners.Load("runners.csv");
+            _runners = new Runners();
+            _runners.Load(RunnersFile);
         }
 
         private void SetLapsDatasource()
         {
-            laps = new Laps();
-            laps.Load("laps.csv");
+            _laps = new Laps();
+            _laps.Load(LapsFile);
         }
 
         private void importLapsButton_Click(object sender, EventArgs e)
@@ -34,32 +35,53 @@ namespace LapTracker
             var result = window.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                laps.Add(window.Laps);
-                laps.RemoveDuplicates();
-                laps.Save("laps.csv");
+                _laps.Add(window.Laps);
+                _laps.RemoveDuplicates();
+                SaveLaps();
             }
         }
 
         private void manageRunnersButton_Click(object sender, EventArgs e)
         {
-            var window = new RunnersWizard(runners);
+            var window = new RunnersWizard(_runners);
             var result = window.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                runners.Dispose();
-                runners = window.Runners;
-                runners.Save("runners.csv");
+                _runners.Dispose();
+                _runners = window.Runners;
+                SaveRunners();
+               
             }
             else
             {
-                runners.Dispose();
+                _runners.Dispose();
                 SetRunnersDatasource();
             }
         }
 
+        private void SaveRunners()
+        {
+            if (File.Exists(RunnersFile))
+            {
+                var backupFile = String.Format("runners-{0}.csv", DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss"));
+                File.Move(RunnersFile, backupFile);
+            }
+            _runners.Save(RunnersFile);
+        }
+
+        private void SaveLaps()
+        {
+            if (File.Exists(LapsFile))
+            {
+                var backupFile = String.Format("laps-{0}.csv", DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss"));
+                File.Move(LapsFile, backupFile);
+            }
+            _runners.Save(LapsFile);
+        }
+
         private void reportsButton_Click(object sender, EventArgs e)
         {
-            var window = new ReportWizard(laps, runners);
+            var window = new ReportWizard(_laps, _runners);
             window.ShowDialog(this);
         }
     }

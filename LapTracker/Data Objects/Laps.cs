@@ -1,18 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using LapTracker.Properties;
 
 namespace LapTracker
 {
     public class Laps : DataTable
     {
         private const string tableName = "Laps";
+        private static readonly TimeSpan minimumLapTime;
+
+        static Laps()
+        {
+            int secondsSetting;
+            if (!int.TryParse(Settings.Default.MinimumLapSeconds, out secondsSetting))
+            {
+                secondsSetting = 60;
+            }
+
+            minimumLapTime = TimeSpan.FromSeconds(secondsSetting);
+        }
 
         public Laps()
         {
+           
             TableName = tableName;
             Columns.Add(new DataColumn("Id", typeof (long)){AutoIncrement = true, AutoIncrementSeed = 0, AutoIncrementStep = 1, ReadOnly = true});
             Columns.Add(new DataColumn("Time", typeof (DateTime)));
@@ -208,7 +224,7 @@ namespace LapTracker
             {
                 var id1 = id;
                 var lapsForId = (from Lap row in Rows where row.BarcodeId == id1 orderby row.Time ascending select row);
-                rowsToRemove.AddRange(FilterLapsTooCloseInTime(lapsForId, TimeSpan.FromMinutes(1)));
+                rowsToRemove.AddRange(FilterLapsTooCloseInTime(lapsForId, minimumLapTime));
             }
             return rowsToRemove;
         }
