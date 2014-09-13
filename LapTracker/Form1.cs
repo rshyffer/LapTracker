@@ -76,7 +76,7 @@ namespace LapTracker
                 var backupFile = String.Format("laps-{0}.csv", DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss"));
                 File.Move(LapsFile, backupFile);
             }
-            _runners.Save(LapsFile);
+            _laps.Save(LapsFile);
         }
 
         private void reportsButton_Click(object sender, EventArgs e)
